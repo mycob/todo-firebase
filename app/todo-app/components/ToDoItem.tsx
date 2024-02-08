@@ -9,6 +9,8 @@ const ToDoItemComponent = ({ todo } :
 
     const auth = useAuth();
 
+    //  ALL OF THE METHODS BEING USED ARE ON THE SERVER SIDE.
+    //  KEPT THIS CODE FOR REFERENCE
     const handleCheckBox = async (e: React.ChangeEvent<HTMLInputElement>) => {
         if(!auth) return;
         let checked = e.target.checked;

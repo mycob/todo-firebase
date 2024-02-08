@@ -2,6 +2,12 @@
 import React, { useEffect } from 'react'
 import { useFormStatus } from 'react-dom';
 
+/**
+ * 
+ * THIS COMPONENT IS CLIENT AND WAS SEPARATED FROM
+ * THE CLIENT FORM COMPONENT SO THAT IT CAN OBSERVE THE
+ * USEFORMSTATUS, OTHERWISE, IT WAS NOT WORKING.
+ */
 const SubmitButtonComponent = () => {
     const { pending } = useFormStatus();
 
