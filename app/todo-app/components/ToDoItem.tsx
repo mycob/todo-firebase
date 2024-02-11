@@ -2,7 +2,7 @@ import useAuth from '@/app/lib/hooks/useAuth';
 import React from 'react'
 import { db } from '@/app/lib/firebase/clientApp';
 import { doc, updateDoc, deleteDoc } from 'firebase/firestore';
-import { deleteToDo, updateToDo, updateStatus } from '@/app/actions/toDoActions';
+import { deleteToDo, updateToDo, updateStatus } from '@/app/lib/actions/toDoActions';
 
 const ToDoItemComponent = ({ todo } : 
     { todo: {id: string, todo: string, timestamp: number, complete: boolean }}) => {

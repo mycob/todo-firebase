@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { db } from '../../lib/firebase/clientApp'
 import { addDoc, collection } from 'firebase/firestore'
 import useAuth from '@/app/lib/hooks/useAuth'
-import { addToDo } from '@/app/actions/toDoActions'
+import { addToDo } from '@/app/lib/actions/toDoActions'
 import SubmitButtonComponent from './SubmitButton'
 
 const AddToDoComponent = () => {
