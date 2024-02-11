@@ -26,9 +26,13 @@ const ToDoListComponent = () => {
 
         return () => unsubscribe();
     },[ auth ])
+
+    if(todos.length <= 0) {
+        return (<h1 className='text-center'>You&apos;re all caught up.  Nice work! 🎉</h1>)
+    }
     
     return (
-        <div className='mt-12 flex flex-col items-center'>
+        <div className='flex flex-col items-center'>
             <div className='p-3 min-w-fit w-[350px]'>
                 {todos.map((todo) => (
                     <ToDoItemComponent key={todo.id} todo={todo} />
