@@ -1,8 +1,7 @@
 'use client'
 import React from 'react'
-import dynamic from 'next/dynamic';
 import useAuth from '../lib/hooks/useAuth';
-const SignInComponent = dynamic(() => import('../components/signin/signin').then(mod => mod.default));
+import SignInComponent from './@signin/page';
 
 const ToDoAppLayoutComponent = ({ children } : 
     { children: React.ReactElement }) => {
