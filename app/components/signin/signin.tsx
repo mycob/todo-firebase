@@ -53,22 +53,33 @@ const SignInComponent = () => {
         <div className="flex justify-center mt-24">
         <form 
             onSubmit={handleSignIn}
-            className="grid grid-cols-1 gap-2 w-[250px] min-w-fit items-center justify-center"
+            className="grid grid-cols-1 gap-2 w-[350px] min-w-fit items-center justify-center shadow-lg p-6 rounded-md"
         >
-            <h1 className="text-center">Sign In</h1>
-            <input type="email" name="email" placeholder='Email' required />
-            <input type="password" name="password" placeholder='Password' required/>
-            <button type='submit' className='bg-blue-500 rounded-md text-white'>Login</button>
+            <h1 className="text-center font-bold mb-3">Enter Credentials</h1>
+            <input 
+                className='border-2 border-slate-200 px-2 rounded-sm py-1'
+                type="email" 
+                name="email" 
+                placeholder='Email' 
+                required 
+            />
+            <input 
+                className='border-2 border-slate-200 px-2 rounded-sm py-1'
+                type="password" 
+                name="password" 
+                placeholder='Password' 
+                required
+            />
+            <button 
+                type='submit'
+                className='bg-blue-500 rounded-md text-white py-1'
+            >Log In</button>
             <button 
             type='button' 
-            className='bg-yellow-500 rounded-md text-white'
+            className='bg-yellow-500 rounded-md text-white py-1'
             onClick={handleSignUp}
             >Sign Up</button>
-            <p>{ loading ? 'Signing in...' : '' }</p>
-            <button
-                type='button'
-                onClick={() => signOut(auth)}
-            >Sign out</button>
+            <p className='text-center'>{ loading ? 'Signing in...' : '' }</p>
         </form>
         </div>
     )

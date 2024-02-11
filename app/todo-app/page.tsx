@@ -8,8 +8,9 @@ const ToDoAppComponent = () => {
   return (
     <div className='flex flex-col pt-12'>
         <SignOutButton />
-        <h1 className='text-center'>Welcome to My ToDo App</h1>
+        <h1 className='text-center my-12 font-bold'>My ToDos</h1>
         <AddToDoComponent />
+        <hr className='my-12 mx-12' />
         <ToDoListComponent />
     </div>
   )

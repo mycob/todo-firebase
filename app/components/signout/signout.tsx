@@ -16,6 +16,7 @@ const SignOutButton = () => {
     
     return (
         <button
+            className='self-end mx-12 text-sm hover:font-bold'
             onClick={handleSignOut}
         >Sign Out</button>
     )

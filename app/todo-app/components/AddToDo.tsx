@@ -39,9 +39,12 @@ const AddToDoComponent = () => {
     return (
         <form 
             action={addToDoWithUserId}
-            className=' mt-4 flex justify-center'
+            className=' mt-4 flex justify-center min-w-fit'
         >
-            <input type="text" id='todo-input' name='todo' placeholder='Add To Do...' required />
+            <input 
+                type="text" id='todo-input' 
+                className='without-ring pl-3 w-[350px] min-w-fit' 
+                name='todo' placeholder='Add To Do...' required />
             <SubmitButtonComponent />
         </form>
     )

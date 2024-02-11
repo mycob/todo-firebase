@@ -2,3 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+.without-ring {
+    @apply border-b-2 focus:outline-none
+}
+
+* {
+    @apply transition-all ease-in-out
+}
