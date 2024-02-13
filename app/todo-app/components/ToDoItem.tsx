@@ -32,14 +32,51 @@ const ToDoItemComponent = ({ todo } :
         await deleteDoc(docRef);
     }
 
+    //  CLOUD FUNCTIONS
+    const handleBlurWithFunc = async (e: React.FocusEvent<HTMLInputElement>) => {
+        if(!auth) return;
+        let newVal = e.target.value;
+        const funcUrl = `https://updatetodo-qqxtxpnvsa-uc.a.run.app?userUid=${auth?.uid}&todoID=${todo.id}&todo=${newVal}&complete=${todo.complete}`;
+
+        try {
+            await fetch(funcUrl);
+        } catch (error) {
+            console.log(error)
+        }
+
+    }
+
+    const handleCheckBoxWithFunc = async (e: React.ChangeEvent<HTMLInputElement>) => {
+        if(!auth) return;
+        let checked = e.target.checked;
+        const funcUrl = `https://updatetodo-qqxtxpnvsa-uc.a.run.app?userUid=${auth?.uid}&todoID=${todo.id}&todo=${todo.todo}&complete=${checked}`;
+
+        try {
+            let initFetch = await fetch(funcUrl);
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    const handleDeleteWithFunc = async () => {
+        if(!auth) return;
+        const funcUrl = `https://deletetodo-qqxtxpnvsa-uc.a.run.app?userUid=${auth?.uid}&todoID=${todo.id}`;
+
+        try {
+            let initFetch = await fetch(funcUrl);
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
     return (
         <div className='hover:border-2 shadow-md p-2 m-1 rounded-sm'>
             <div className='text-xs'>{new Date(todo.timestamp).toDateString()}</div>
             <div  className='flex mx-1 hover:border-slate-300 '>
                 <input type="checkbox" checked={todo.complete} 
-                    onChange={(e) => updateStatus(auth?.uid,todo.id,e.target.checked)} />
+                    onChange={handleCheckBoxWithFunc} />
                 <input
-                    onBlur={(e) => updateToDo(auth?.uid, todo.id, e.target.value)}
+                    onBlur={handleBlurWithFunc}
                     type='text'
                     defaultValue={todo.todo}
                     disabled={todo.complete}
@@ -47,7 +84,7 @@ const ToDoItemComponent = ({ todo } :
                 />
                 <button
                     className='bg-red-600 text-white text-xs px-2 rounded-md' 
-                    onClick={() => deleteToDo(auth?.uid,todo.id)}>Delete</button>
+                    onClick={handleDeleteWithFunc}>Delete</button>
             </div>
         </div>
     )

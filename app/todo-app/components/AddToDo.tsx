@@ -36,9 +36,32 @@ const AddToDoComponent = () => {
         }        
     }
 
+    const handleSubmitWithFunc = async (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+
+        if(!auth) return;
+
+        let todo = e.currentTarget.todo.value;
+        
+        const funcUrl = `https://addtodo-qqxtxpnvsa-uc.a.run.app?userUid=${auth?.uid}&todo=${todo}`;
+
+        setLoading(true);
+        try {
+            await fetch(funcUrl);
+        } catch (error) {
+            console.log(error);
+        } finally {
+            setLoading(false);
+
+            //  RESET INPUT AND REFOCUS
+            (document.getElementById('todo-input') as HTMLInputElement).value = '';
+            (document.getElementById('todo-input') as HTMLInputElement).focus();
+        }        
+    }
+
     return (
         <form 
-            action={addToDoWithUserId}
+            onSubmit={handleSubmitWithFunc}
             className=' mt-4 flex justify-center min-w-fit'
         >
             <input 
