@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.complete-todo {
+    @apply flex-1 border-0 ml-3 focus:border-0 focus:outline-none focus:ring-0 rounded-none line-through disabled:bg-inherit;
+}
+
+.incomplete-todo {
+    @apply flex-1 border-0 ml-3 focus:border-t-0 focus:border-r-0 focus:border-l-0 focus:border-b-2 focus:outline-none focus:ring-0 rounded-none;
+}
