@@ -2,7 +2,6 @@ import useAuth from '@/app/lib/hooks/useAuth';
 import React from 'react'
 import { db } from '@/app/lib/firebase/clientApp';
 import { doc, updateDoc, deleteDoc } from 'firebase/firestore';
-import { deleteToDo, updateToDo, updateStatus } from '@/app/lib/actions/toDoActions';
 import '../todo.css';
 
 const ToDoItemComponent = ({ todo } : 
@@ -37,9 +36,19 @@ const ToDoItemComponent = ({ todo } :
             <div className='text-xs'>{new Date(todo.timestamp).toDateString()}</div>
             <div  className='flex mx-1 hover:border-slate-300 '>
                 <input type="checkbox" checked={todo.complete} 
-                    onChange={(e) => updateStatus(auth?.uid,todo.id,e.target.checked)} />
+                    onChange={(e) => {
+                        import('@/app/lib/actions/toDoActions').then(mod => {
+                            mod.updateStatus(auth?.uid,todo.id,e.target.checked);
+                            console.log('complete');
+                        }).catch(err => console.log(err))
+                    }}
+                />
                 <input
-                    onBlur={(e) => updateToDo(auth?.uid, todo.id, e.target.value)}
+                    onBlur={(e) => {
+                        import('@/app/lib/actions/toDoActions').then(mod => {
+                            mod.updateToDo(auth?.uid, todo.id, e.target.value);
+                        })
+                    }}
                     type='text'
                     defaultValue={todo.todo}
                     disabled={todo.complete}
@@ -47,7 +56,11 @@ const ToDoItemComponent = ({ todo } :
                 />
                 <button
                     className='bg-red-600 text-white text-xs px-2 rounded-md' 
-                    onClick={() => deleteToDo(auth?.uid,todo.id)}>Delete</button>
+                    onClick={() => {
+                        import('@/app/lib/actions/toDoActions').then(mod => {
+                            mod.deleteToDo(auth?.uid,todo.id);
+                        })
+                    }}>Delete</button>
             </div>
         </div>
     )

@@ -1,7 +1,10 @@
 import React from 'react'
-import AddToDoComponent from './components/AddToDo';
-import SignOutButton from '../components/signout/signout';
-import ToDoListComponent from './components/ToDoList';
+import dynamic from 'next/dynamic';
+
+//  DYNAMICALLY IMPORTED COMPONENTS...CODE SPLITTING
+const AddToDoComponent = dynamic(() => import('./components/AddToDo').then(mod => mod.default));
+const SignOutButton = dynamic(() => import('../components/signout/signout').then(mod => mod.default));
+const ToDoListComponent = dynamic(() => import('./components/ToDoList').then(mod => mod.default));
 
 const ToDoAppComponent = () => {
   return (
