@@ -4,7 +4,9 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 The purpose of this project is to demonstrate how to create a ToDo App using Firebase Authentication, Firebase Firestore, and Google Cloud Functions while leveraging features offered by NextJS 14 such as the new App Router routing convention, parallel routing, server actions, and more.
 
 ## YouTube
-The development of this app was recorded and published via Code Hackery YouTube Channel.  Here is the link to the playlist.
+The development of this app was recorded and published via Code Hackery YouTube Channel.  
+
+[Full Video Tutorial](https://youtu.be/C3iYBxO8Iao)
 
 ##  Things to know before you get started
 - The main <b>app</b> folder is final using server actions.  As of February 13, 2024, server actions does not work via Firebase Hosting.  However, it does work when hosted on Vercel, which is demonstrated in the YouTube video.
