@@ -7,7 +7,7 @@ The purpose of this project is to demonstrate how to create a ToDo App using Fir
 The development of this app was recorded and published via Code Hackery YouTube Channel.  
 
 - [Full Video Tutorial](https://youtu.be/C3iYBxO8Iao)
-- [Firebase Cloud Functions Tutorial](https://youtu.be/A77JMPOdMdc)
+- [Firebase Cloud Functions Tutorial](https://youtu.be/A77JMPOdMdc) - this was a solution to server actions issues with Firebase Hosting as of February 14, 2024.
 
 ##  Things to know before you get started
 - The main <b>app</b> folder is final using server actions.  As of February 13, 2024, server actions does not work via Firebase Hosting.  However, it does work when hosted on Vercel, which is demonstrated in the YouTube video.
