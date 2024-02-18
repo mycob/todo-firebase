@@ -25,6 +25,8 @@ The development of this app was recorded and published via Code Hackery YouTube 
 * The <b>app-firebase-hosting</b> folder contains code that leverages Cloud Functions so that the app can work when hosted on Firebase.  Unfortunately, that means it's not using server actions.  This was a great opportunity to demonstrate the use of Google Cloud functions as an alternative solution.  You can access the [Cloud Functions code here](https://github.com/mycoberago/todo-functions).
     * Here is the [link to the issue on GitHub](https://github.com/firebase/firebase-tools/issues/6653).
 * If you want to use the <b>app-firebase-hosting</b> folder, simply rename the current <b>app</b> folder to something different (e.g. app-main) and then rename the <b>app-firebase-hosting</b> folder to just <b>app</b>.
+* The final code may look a little different from the videos, specifically when methods are being used on click or submit events and when importing components.  I wanted to demonstrated [code-splitting](https://developer.mozilla.org/en-US/docs/Glossary/Code_splitting).  Here is [NextJS' Documentation](https://nextjs.org/docs/pages/building-your-application/optimizing/lazy-loading).
+    * HOWEVER, be mindful that there are some [issues with code-splitting](https://github.com/vercel/next.js/issues/54935).
 * Finally, I kept mentioning serverless functions as if NextJS is not serverless in this scenario when using server actions.  They're both serverless scenarios, just different solutions.  🤦🏽‍♂️
 
 ## Getting Started
