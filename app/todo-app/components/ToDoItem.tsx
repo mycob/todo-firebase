@@ -37,9 +37,9 @@ const ToDoItemComponent = ({ todo } :
             <div  className='flex mx-1 hover:border-slate-300 '>
                 <input type="checkbox" checked={todo.complete} 
                     onChange={(e) => {
+                        let checked = e.target.checked; // MUST INITIAL BEFORE IMPORT
                         import('@/app/lib/actions/toDoActions').then(mod => {
-                            mod.updateStatus(auth?.uid,todo.id,e.target.checked);
-                            console.log('complete');
+                            mod.updateStatus(auth?.uid,todo.id,checked);
                         }).catch(err => console.log(err))
                     }}
                 />
