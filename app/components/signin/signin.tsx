@@ -16,7 +16,6 @@ const SignInComponent = () => {
 
         signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
-            console.log(userCredential);
             setLoading(false);
         })
         .catch((error) => {
@@ -35,7 +34,6 @@ const SignInComponent = () => {
         .then((userCredential) => {
             // Signed up 
             const user = userCredential.user;
-            console.log(user);
             setLoading(false);
             // ...
         })
