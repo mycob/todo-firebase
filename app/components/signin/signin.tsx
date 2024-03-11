@@ -25,6 +25,9 @@ const SignInComponent = () => {
     }
 
     const handleSignUp = () => {
+
+        return; // disabling while it's live
+
         let email = document.getElementsByName('email')[0] as HTMLInputElement;
         let password = document.getElementsByName('password')[0] as HTMLInputElement;
 
